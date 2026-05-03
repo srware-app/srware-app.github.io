@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SRWare Iron for Windows – Updates, Release Notes & Changelog</title>
+  <meta name="description" content="Track SRWare Iron updates for Windows: how to check version, update safely, and follow release notes and changelogs." />
+  <meta name="robots" content="index,follow" />
+  <meta name="last-modified" content="" />
+  <link rel="canonical" href="https://srware-app.github.io/updates.html" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SRWare Iron – Updates & Changelog (Windows)" />
+  <meta property="og:description" content="How to check SRWare Iron version, update safely, and where to find release notes for Windows builds." />
+  <meta property="og:url" content="https://srware-app.github.io/updates.html" />
+  <meta property="og:image" content="https://srware-app.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SRWare Iron – Updates & Changelog (Windows)" />
+  <meta name="twitter:description" content="How to check SRWare Iron version, update safely, and where to find release notes for Windows builds." />
+  <meta name="twitter:image" content="https://srware-app.github.io/og-image.png" />
+
+  <style>
+    :root{ --bg:#ffffff; --bg-soft:#f4f7fb; --text:#0e1a2b; --muted:#44556e; --primary:#1f73b7; --border:#d8e2ee; --focus:#ffb703; --radius:12px; --shadow:0 10px 30px rgba(0,0,0,.08); }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+    a{color:var(--primary)}
+    .container{max-width:1100px;margin-inline:auto;padding:0 20px}
+    header{position:sticky;top:0;background:rgba(255,255,255,.96);border-bottom:1px solid var(--border);z-index:10}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    nav ul{display:flex;gap:14px;list-style:none;padding:0;margin:0}
+
+    .hero{padding:36px 0}
+    .hero-card{background:var(--bg-soft);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:var(--radius);padding:24px}
+    h1{margin:0 0 8px;font-size:1.8rem}
+    .subtitle{color:var(--muted);margin:0 0 18px}
+
+    .section{padding:28px 0;border-top:1px solid var(--border)}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px}
+    .meta{color:var(--muted);font-size:.92rem}
+    .release{border-left:4px solid var(--primary);padding:12px;margin-bottom:12px;background:var(--bg-soft);border-radius:8px}
+    .small{font-size:.92rem;color:var(--muted)}
+
+    footer{margin-top:40px;padding:28px 0;border-top:1px solid var(--border);color:var(--muted)}
+
+    .banner{position:fixed;inset:auto 16px 16px 16px;max-width:760px;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow);border-radius:12px;padding:16px;z-index:99}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:2px solid transparent;cursor:pointer}
+    .btn-primary{background:var(--primary);color:#fff}
+
+    @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="ico-gear" viewBox="0 0 24 24"><path fill="currentColor" d="M19.4 13.5a7.8 7.8 0 0 0 .1-1.5 7.8 7.8 0 0 0-.1-1.5l2.1-1.6a.5.5 0 0 0 .1-.6l-2-3.4a.5.5 0 0 0-.6-.2l-2.5 1a6.5 6.5 0 0 0-2.6-1.5l-.4-2.6A.5.5 0 0 0 12 0h-4a.5.5 0 0 0-.5.4l-.4 2.6A6.5 6.5 0 0 0 4.5 4.5l-2.5-1a.5.5 0 0 0-.6.2l-2 3.4a.5.5 0 0 0 .1.6L1.6 9a7.8 7.8 0 0 0-.1 1.5 7.8 7.8 0 0 0 .1 1.5L-.5 13.6a.5.5 0 0 0-.1.6l2 3.4a.5.5 0 0 0 .6.2l2.5-1a6.5 6.5 0 0 0 2.6 1.5l.4 2.6a.5.5 0 0 0 .5.4h4a.5.5 0 0 0 .5-.4l.4-2.6a6.5 6.5 0 0 0 2.6-1.5l2.5 1a.5.5 0 0 0 .6-.2l2-3.4a.5.5 0 0 0-.1-.6l-2.1-1.6ZM10 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0Z"/></symbol>
+    <symbol id="ico-download" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20h14a1 1 0 0 0 0-2H5a1 1 0 1 0 0 2Zm7-3a1 1 0 0 0 1-1V6a1 1 0 1 0-2 0v10a1 1 0 0 0 1 1Zm-3.7-5.7 2.99 2.99a1 1 0 0 0 1.42 0l2.99-2.99a1 1 0 1 0-1.41-1.41L12 11.59 9.7 9.29a1 1 0 1 0-1.41 1.41Z"/></symbol>
+  </svg>
+
+  <header>
+    <div class="container topbar">
+      <a class="brand" href="/" style="font-weight:700;color:var(--text);text-decoration:none">SRWare Iron for Windows</a>
+      <nav>
+        <ul>
+          <li><a href="/download-windows.html">Download</a></li>
+          <li><a href="/install-windows.html">Install</a></li>
+          <li><a href="/portable-windows.html">Portable</a></li>
+          <li><a href="/privacy-setup.html">Privacy</a></li>
+          <li><a href="/iron-vs-chrome.html">VS Chrome</a></li>
+          <li><a href="/troubleshoot.html">Troubleshoot</a></li>
+          <li><a href="/updates.html" aria-current="page">Updates</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Updates & Changelog — SRWare Iron (Windows)</h1>
+        <p class="subtitle">Keep your browser secure. Here’s how to check the current version, update safely, and where to find release notes.</p>
+        <p><a class="btn btn-primary" href="https://www.srware.net/downloads/srware_iron64.exe" data-download data-file="srware_iron64.exe" target="_blank" rel="noopener"><svg aria-hidden="true" style="width:16px;height:16px;vertical-align:middle"><use href="#ico-download"/></svg>&nbsp; Download latest installer</a></p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="how-to-check">
+      <h2 id="how-to-check">How to check your SRWare Iron version</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>From within the browser</h3>
+          <ol>
+            <li>Open menu → Help → About SRWare Iron (or type <code>iron://settings/help</code>).</li>
+            <li>The About page shows the current version and whether updates are installed.</li>
+            <li>If automatic updates are available, Iron will usually check and apply them depending on the build.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Manually check the installer</h3>
+          <p>Compare your installed version to the vendor’s latest release notes or the installer’s metadata. We provide a direct link to the official 64‑bit installer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="safe-update">
+      <h2 id="safe-update">Safely update SRWare Iron</h2>
+      <div class="card">
+        <ul>
+          <li>Always download installers from the official domain (srware.net) or vendor pages.</li>
+          <li>Keep a backup of your profile (bookmarks and important settings) before major updates.</li>
+          <li>When in doubt, perform a clean reinstall (see Troubleshoot → Clean reinstall).</li>
+          <li>Keep Windows updates and drivers current for best compatibility.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="release-notes">
+      <h2 id="release-notes">Release notes & changelog (examples)</h2>
+      <div class="card">
+        <p class="small">Below are example release note templates. For the authoritative changelog check the vendor’s official site.</p>
+
+        <div class="release">
+          <strong>Version X.Y.Z — Security & stability update</strong>
+          <div class="small">Released: YYYY-MM-DD</div>
+          <ul>
+            <li>Security fixes for Chromium CVE references.</li>
+            <li>Performance improvements on Windows 11.</li>
+            <li>Bug fixes: crash on video playback, UI freezes on some GPUs.</li>
+          </ul>
+        </div>
+
+        <div class="release">
+          <strong>Version X.Y.(Z-1) — Feature & privacy tweaks</strong>
+          <div class="small">Released: YYYY-MM-DD</div>
+          <ul>
+            <li>Improved privacy defaults (reduced telemetry hooks).</li>
+            <li>Updated embedded Chromium to upstream revision.</li>
+            <li>Misc UI improvements and bug fixes.</li>
+          </ul>
+        </div>
+
+        <p class="small">Note: We do not control upstream releases. Always refer to the official project pages for full changelogs and source information.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="auto-update">
+      <h2 id="auto-update">Auto‑update behavior & tips</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Auto‑update considerations</h3>
+          <ul>
+            <li>Some vendor builds auto‑update; others require manual download and install.</li>
+            <li>Portable builds typically require manual replacement for updates.</li>
+            <li>Enterprises may manage updates centrally; consult your admin if in a managed environment.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Recommended update routine</h3>
+          <ul>
+            <li>Enable automatic updates if offered and you trust the source.</li>
+            <li>Periodically check this page or the vendor’s release notes for major changes.</li>
+            <li>Keep backups and follow a rollback plan in case of incompatibilities.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq">
+      <h2 id="faq">Updates FAQ</h2>
+      <div class="card">
+        <dl>
+          <dt>How often are updates released?</dt>
+          <dd>Frequency varies: security patches follow upstream Chromium releases, while vendor feature updates depend on the maintainer’s cadence.</dd>
+          <dt>Where can I find official release notes?</dt>
+          <dd>Check the vendor site or official SRWare/GitHub pages. Use the direct download link we provide for installer access.</dd>
+          <dt>Can I roll back an update?</dt>
+          <dd>Rolling back typically requires reinstalling a previous version and restoring a backup of your profile. Keep versioned backups if rollback is important.</dd>
+        </dl>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container" style="padding:28px 0;border-top:1px solid var(--border);color:var(--muted)">
+      <strong>SRWare Iron for Windows (Unofficial micro‑site)</strong>
+      <p class="small">This site is not affiliated with SRWare GmbH. Links point to the official installer at srware.net when possible.</p>
+      <p id="last-updated">Last updated: —</p>
+      <p class="small">Canonical: <a href="https://srware-app.github.io/updates.html">https://srware-app.github.io/updates.html</a></p>
+    </div>
+  </footer>
+
+  <!-- Cookie banner -->
+  <div id="cookie-banner" class="banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title" aria-describedby="cookie-desc" hidden>
+    <p id="cookie-title" style="font-weight:700">Cookies & analytics</p>
+    <p id="cookie-desc">We use cookies to remember your choices and enable anonymous analytics (Google Analytics 4). You can accept or decline. You can also close this banner to decide later.</p>
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px;">
+      <button class="btn" id="btn-decline" type="button">Decline</button>
+      <button class="btn btn-primary" id="btn-accept" type="button">Accept</button>
+      <button class="btn" id="btn-close" type="button">Close</button>
+    </div>
+  </div>
+
+  <!-- Structured data: WebPage + SoftwareApplication + FAQPage + ItemList (releases) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"WebPage","@id":"https://srware-app.github.io/updates.html#webpage","url":"https://srware-app.github.io/updates.html","name":"SRWare Iron – Updates & Changelog","description":"How to check SRWare Iron version, update safely, and where to find release notes.","isPartOf":{"@id":"https://srware-app.github.io/#website"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://srware-app.github.io/"},{"@type":"ListItem","position":2,"name":"Updates","item":"https://srware-app.github.io/updates.html"}]}}
+      ,{"@type":"SoftwareApplication","name":"SRWare Iron","applicationCategory":"BrowserApplication","operatingSystem":"Windows 11, Windows 10","softwareVersion":"Latest","downloadUrl":"https://www.srware.net/downloads/srware_iron64.exe","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"SRWare"},"url":"https://srware-app.github.io/updates.html"}
+      ,{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How often are updates released?","acceptedAnswer":{"@type":"Answer","text":"Frequency varies: security patches follow upstream Chromium releases, while vendor feature updates depend on the maintainer’s cadence."}},{"@type":"Question","name":"Where can I find official release notes?","acceptedAnswer":{"@type":"Answer","text":"Check the vendor site or official SRWare pages. Use the direct download link we provide for installer access."}},{"@type":"Question","name":"Can I roll back an update?","acceptedAnswer":{"@type":"Answer","text":"Rolling back typically requires reinstalling a previous version and restoring a backup of your profile."}}]}
+      ,{"@type":"ItemList","name":"Recent releases (example)","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Version X.Y.Z","url":"https://srware-app.github.io/updates.html","description":"Security & stability update (YYYY-MM-DD)"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Version X.Y.(Z-1)","url":"https://srware-app.github.io/updates.html","description":"Feature & privacy tweaks (YYYY-MM-DD)"}}]}
+    ]
+  }
+  </script>
+
+  <script>
+  // last-modified injection
+  (function(){var lm=document.lastModified||'';var meta=document.querySelector('meta[name="last-modified"]');if(meta)meta.setAttribute('content',lm);var el=document.getElementById('last-updated');if(el)el.textContent='Last updated: '+lm;})();
+
+  // cookie banner + GA lazy loader
+  (function(){
+    var banner=document.getElementById('cookie-banner');
+    var accept=document.getElementById('btn-accept');
+    var decline=document.getElementById('btn-decline');
+    var closeBtn=document.getElementById('btn-close');
+    var key='cookieConsent';
+    function show(){ if(!banner) return; banner.hidden=false; }
+    function hide(){ if(!banner) return; banner.hidden=true; }
+    function loadGA(){ if(window.__gaLoaded) return; window.__gaLoaded=true; window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);} window.gtag=gtag; gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied'}); var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-QL8CGXD04H'; s.onload=function(){ gtag('js', new Date()); gtag('config','G-QL8CGXD04H'); }; document.head.appendChild(s);} 
+    function grant(){ if(typeof gtag==='function'){ gtag('consent','update',{analytics_storage:'granted'});} else { loadGA(); var t=setInterval(function(){ if(typeof gtag==='function'){ gtag('consent','update',{analytics_storage:'granted'}); clearInterval(t);} },200);} }
+    var saved=localStorage.getItem(key);
+    if(saved==='accepted'){ loadGA(); grant(); } else if(saved==='declined'){ } else { if(!sessionStorage.getItem('cookieBannerHiddenOnce')) show(); }
+    accept && accept.addEventListener('click', function(){ localStorage.setItem(key,'accepted'); hide(); loadGA(); grant(); });
+    decline && decline.addEventListener('click', function(){ localStorage.setItem(key,'declined'); hide(); });
+    closeBtn && closeBtn.addEventListener('click', function(){ sessionStorage.setItem('cookieBannerHiddenOnce','1'); hide(); });
+  })();
+
+  // download tracking
+  (function(){ document.addEventListener('click', function(e){ var a=e.target.closest('a[data-download]'); if(a){ var name=a.getAttribute('data-file')||'srware_iron64.exe'; var href=a.getAttribute('href'); if(typeof gtag==='function'){ gtag('event','file_download',{event_category:'downloads',event_label:name,file_url:href}); } } }); })();
+  </script>
+</body>
+</html>

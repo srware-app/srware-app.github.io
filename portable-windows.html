@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SRWare Iron Portable for Windows – Run Without Install</title>
+  <meta name="description" content="Run SRWare Iron portable on Windows: what it is, when to use it, profile storage, updates, and safety tips. Direct 64‑bit installer provided as an alternative." />
+  <meta name="robots" content="index,follow" />
+  <meta name="last-modified" content="" />
+  <link rel="canonical" href="https://srware-app.github.io/portable-windows.html" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SRWare Iron Portable for Windows – Run Without Install" />
+  <meta property="og:description" content="Use SRWare Iron without installation. Learn when portable makes sense, how it stores data, and how to update it." />
+  <meta property="og:url" content="https://srware-app.github.io/portable-windows.html" />
+  <meta property="og:image" content="https://srware-app.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SRWare Iron Portable for Windows – Run Without Install" />
+  <meta name="twitter:description" content="Use SRWare Iron without installation. Learn when portable makes sense, how it stores data, and how to update it." />
+  <meta name="twitter:image" content="https://srware-app.github.io/og-image.png" />
+
+  <style>
+    :root{
+      --bg:#ffffff; --bg-soft:#f4f7fb; --text:#0e1a2b; --muted:#44556e;
+      --primary:#1f73b7; --primary-600:#1c66a4; --primary-700:#185988; --accent:#0aa2ff;
+      --border:#d8e2ee; --success:#1d9f52; --danger:#c23939; --focus:#ffb703;
+      --shadow:0 10px 30px rgba(0,0,0,.08); --radius:12px; --radius-sm:8px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;line-height:1.6}
+    a{color:var(--primary);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin-inline:auto;padding:0 20px}
+    header{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border);z-index:10}
+    .topbar{display:flex;gap:20px;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:1.05rem;color:var(--text)}
+    .brand svg{width:28px;height:28px}
+    nav ul{display:flex;flex-wrap:wrap;gap:14px;list-style:none;margin:0;padding:0}
+    nav a{padding:8px 10px;border-radius:8px}
+    nav a:focus,button:focus,[role="button"]:focus{outline:3px solid var(--focus);outline-offset:2px}
+    nav a:hover{background:var(--bg-soft)}
+
+    .breadcrumbs{font-size:.95rem;color:var(--muted);padding:10px 0}
+    .breadcrumbs a{color:var(--muted)}
+
+    .hero{padding:36px 0}
+    .hero-card{background:var(--bg-soft);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:var(--radius);padding:24px}
+    h1{margin:0 0 8px;font-size:1.8rem;line-height:1.2}
+    .subtitle{color:var(--muted);margin:0 0 18px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}
+
+    .btn{display:inline-flex;align-items:center;gap:10px;border-radius:10px;padding:12px 16px;font-weight:600;border:2px solid transparent;cursor:pointer}
+    .btn svg{width:18px;height:18px}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--primary-600)}
+    .btn-outline{background:#fff;border-color:var(--primary);color:var(--primary)}
+    .btn-outline:hover{background:var(--bg-soft)}
+
+    .section{padding:32px 0;border-top:1px solid var(--border)}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:18px}
+    .card h3{margin:6px 0 10px;font-size:1.1rem}
+    .meta{color:var(--muted);font-size:.92rem}
+    ul.tick{padding-left:18px;margin:8px 0}
+    ul.tick li{margin:6px 0}
+
+    .tip{border-left:4px solid var(--primary);background:var(--bg-soft);padding:12px;border-radius:8px}
+
+    footer{margin-top:40px;padding:28px 0;border-top:1px solid var(--border);color:var(--muted)}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+    .banner{position:fixed;inset:auto 16px 16px 16px;max-width:760px;margin-inline:auto;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow);border-radius:12px;padding:16px;z-index:99}
+    .banner p{margin:0 0 10px}
+    .banner .row{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .btn-accept{background:var(--success);color:#fff}
+    .btn-accept:hover{background:#178446}
+    .btn-decline{background:#fff;color:var(--danger);border-color:var(--danger)}
+    .btn-decline:hover{background:#fff0f0}
+    .btn-close{background:#fff;color:var(--muted);border-color:var(--border)}
+
+    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{position:static;width:auto;height:auto;padding:8px;background:var(--focus);color:#000;border-radius:8px}
+
+    @media (max-width: 900px){
+      .grid-2{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="ico-download" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20h14a1 1 0 0 0 0-2H5a1 1 0 1 0 0 2Zm7-3a1 1 0 0 0 1-1V6a1 1 0 1 0-2 0v10a1 1 0 0 0 1 1Zm-3.7-5.7 2.99 2.99a1 1 0 0 0 1.42 0l2.99-2.99a1 1 0 1 0-1.41-1.41L12 11.59 9.7 9.29a1 1 0 1 0-1.41 1.41Z"/></symbol>
+    <symbol id="ico-windows" viewBox="0 0 24 24"><path fill="currentColor" d="M3 4.5 11 3v8H3V4.5Zm0 9.5h8v8l-8-1.5V14Zm10-11L21 2v9h-8V3Zm0 10h8v9l-8-1.5V13Z"/></symbol>
+    <symbol id="ico-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm0 18.2c-3.1-1.1-5.5-4.6-5.5-8.2V6.4l5.5-2.1 5.5 2.1V12c0 3.6-2.4 7.1-5.5 8.2Z"/></symbol>
+    <symbol id="ico-gear" viewBox="0 0 24 24"><path fill="currentColor" d="M19.4 13.5a7.8 7.8 0 0 0 .1-1.5 7.8 7.8 0 0 0-.1-1.5l2.1-1.6a.5.5 0 0 0 .1-.6l-2-3.4a.5.5 0 0 0-.6-.2l-2.5 1a6.5 6.5 0 0 0-2.6-1.5l-.4-2.6A.5.5 0 0 0 12 0h-4a.5.5 0 0 0-.5.4l-.4 2.6A6.5 6.5 0 0 0 4.5 4.5l-2.5-1a.5.5 0 0 0-.6.2l-2 3.4a.5.5 0 0 0 .1.6L1.6 9a7.8 7.8 0 0 0-.1 1.5 7.8 7.8 0 0 0 .1 1.5L-.5 13.6a.5.5 0 0 0-.1.6l2 3.4a.5.5 0 0 0 .6.2l2.5-1a6.5 6.5 0 0 0 2.6 1.5l.4 2.6a.5.5 0 0 0 .5.4h4a.5.5 0 0 0 .5-.4l.4-2.6a6.5 6.5 0 0 0 2.6-1.5l2.5 1a.5.5 0 0 0 .6-.2l2-3.4a.5.5 0 0 0-.1-.6l-2.1-1.6ZM10 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0Z"/></symbol>
+    <symbol id="ico-external" viewBox="0 0 24 24"><path fill="currentColor" d="M14 3v2h3.6l-7.8 7.8 1.4 1.4L19 6.4V10h2V3h-7Z"/><path fill="currentColor" d="M5 5h6V3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6h-2v6H5V5Z"/></symbol>
+    <symbol id="ico-help" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2Zm1 16h-2v-2h2v2Zm2-7.5c0 1.2-.7 1.9-1.7 2.5-.7.4-1.3.8-1.3 1.5V15h-2v-.6c0-1.5 1.1-2.2 1.9-2.7.7-.4 1.1-.7 1.1-1.2 0-.7-.6-1.2-1.5-1.2-.9 0-1.6.4-2.1 1.1L7 9.2C7.7 8 9.1 7 11 7c2.1 0 4 1.2 4 3.5Z"/></symbol>
+  </svg>
+
+  <header>
+    <div class="container topbar" role="navigation" aria-label="Primary">
+      <a class="brand" href="/" aria-label="Home">
+        <svg aria-hidden="true"><use href="#ico-shield"/></svg>
+        <span>SRWare Iron for Windows</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="/download-windows.html">Download</a></li>
+          <li><a href="/install-windows.html">Install Guide</a></li>
+          <li><a href="/portable-windows.html" aria-current="page">Portable</a></li>
+          <li><a href="/privacy-setup.html">Privacy Setup</a></li>
+          <li><a href="/iron-vs-chrome.html">VS Chrome</a></li>
+          <li><a href="/troubleshoot.html">Troubleshoot</a></li>
+          <li><a href="/updates.html">Updates</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> › <span aria-current="page">Portable</span>
+    </nav>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-card">
+        <h1 id="hero-title">SRWare Iron Portable for Windows</h1>
+        <p class="subtitle">Run Iron without installation. Ideal for locked‑down PCs, shared machines, or launching from a USB drive.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://www.srware.net/downloads/srware_iron64.exe" data-download data-file="srware_iron64.exe" rel="noopener" target="_blank">
+            <svg aria-hidden="true"><use href="#ico-download"/></svg>
+            <span>Download installer (64‑bit)</span>
+          </a>
+          <a class="btn btn-outline" href="/install-windows.html">
+            <svg aria-hidden="true"><use href="#ico-windows"/></svg>
+            <span>Install Guide</span>
+          </a>
+          <a class="btn btn-outline" href="/download-windows.html">
+            <svg aria-hidden="true"><use href="#ico-external"/></svg>
+            <span>More download options</span>
+          </a>
+        </div>
+        <p class="meta">Note: Portable editions may be offered by the vendor. If unavailable, use the standard installer or check the vendor’s site for alternative packages.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="what-portable">
+      <h2 id="what-portable">What “portable” means</h2>
+      <div class="grid-3">
+        <div class="card"><h3>No system install</h3><p>Launch Iron directly from a folder or USB drive without writing to system locations.</p></div>
+        <div class="card"><h3>Self‑contained profile</h3><p>Your browsing data stays in the portable folder, making backups and moves simple.</p></div>
+        <div class="card"><h3>Limited integration</h3><p>Portable apps don’t register as default handlers by default and may not auto‑update.</p></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="when-use">
+      <h2 id="when-use">When to use a portable build</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Great for</h3>
+          <ul class="tick">
+            <li>Shared or locked‑down PCs without install rights</li>
+            <li>Testing a browser without touching system settings</li>
+            <li>Carrying your profile between machines via USB</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Keep in mind</h3>
+          <ul class="tick">
+            <li>May not auto‑update like installed apps</li>
+            <li>Less OS integration (default browser, protocols)</li>
+            <li>Performance depends on your USB drive speed</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="profile">
+      <h2 id="profile">Managing your portable profile</h2>
+      <div class="grid-3">
+        <div class="card"><h3>Backup easily</h3><p>Copy the portable folder to create a snapshot of your extensions, bookmarks, and settings.</p></div>
+        <div class="card"><h3>Stay safe</h3><p>Protect your USB drive with encryption if it stores sensitive data. Avoid public PCs you don’t trust.</p></div>
+        <div class="card"><h3>Update strategy</h3><p>When a new version is released, replace the app files while keeping your portable profile folder intact.</p></div>
+      </div>
+      <p class="tip">For maximum privacy, combine portable use with <a href="/privacy-setup.html">recommended privacy settings and extensions</a>.</p>
+    </section>
+
+    <section class="section" aria-labelledby="faq">
+      <h2 id="faq">Portable FAQ</h2>
+      <div class="card">
+        <dl>
+          <dt>Is a portable build officially available?</dt>
+          <dd>Portable editions may be provided by the vendor. Availability can vary by version. If you can’t find one, the standard installer remains a safe choice.</dd>
+          <dt>Will portable Iron auto‑update?</dt>
+          <dd>Often no. Check for new releases and refresh the app files manually while keeping your profile.</dd>
+          <dt>Does portable keep my data separate?</dt>
+          <dd>Yes, that’s the goal of portable use: to keep your data within a self‑contained folder you control.</dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>SRWare Iron for Windows (Unofficial micro‑site)</strong>
+        <p class="meta">This site is not affiliated with SRWare GmbH. All trademarks and product names are the property of their respective owners. Links point to official sources when possible.</p>
+        <p class="meta" id="last-updated">Last updated: —</p>
+      </div>
+      <div>
+        <p><a href="/">Home</a> · <a href="/download-windows.html">Download</a> · <a href="/install-windows.html">Install Guide</a> · <a href="/portable-windows.html">Portable</a> · <a href="/iron-vs-chrome.html">VS Chrome</a> · <a href="/privacy-setup.html">Privacy Setup</a> · <a href="/troubleshoot.html">Troubleshoot</a> · <a href="/updates.html">Updates</a></p>
+        <p class="meta">Canonical URL: <a href="https://srware-app.github.io/portable-windows.html">https://srware-app.github.io/portable-windows.html</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie banner -->
+  <div id="cookie-banner" class="banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title" aria-describedby="cookie-desc" hidden>
+    <p id="cookie-title" style="font-weight:700">Cookies & analytics</p>
+    <p id="cookie-desc">We use cookies to remember your choices and enable anonymous analytics (Google Analytics 4). You can accept or decline. You can also close this banner to decide later.</p>
+    <div class="row">
+      <button class="btn btn-decline" id="btn-decline" type="button">Decline</button>
+      <button class="btn btn-accept" id="btn-accept" type="button">Accept</button>
+      <button class="btn btn-close" id="btn-close" type="button">Close</button>
+    </div>
+  </div>
+
+  <!-- Structured data: WebPage + SoftwareApplication + BreadcrumbList + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://srware-app.github.io/portable-windows.html#webpage",
+        "url": "https://srware-app.github.io/portable-windows.html",
+        "name": "SRWare Iron Portable for Windows – Run Without Install",
+        "description": "How to use SRWare Iron in portable mode on Windows: benefits, limitations, profile storage, updates, and safety tips.",
+        "isPartOf": {"@id":"https://srware-app.github.io/#website"},
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://srware-app.github.io/"},
+            {"@type":"ListItem","position":2,"name":"Portable","item":"https://srware-app.github.io/portable-windows.html"}
+          ]
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "SRWare Iron",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Windows 11, Windows 10",
+        "softwareVersion": "Latest",
+        "offers": {"@type":"Offer","price":"0.00","priceCurrency":"USD","availability":"https://schema.org/InStock"},
+        "downloadUrl": "https://www.srware.net/downloads/srware_iron64.exe",
+        "installUrl": "https://www.srware.net/downloads/srware_iron64.exe",
+        "isAccessibleForFree": true,
+        "operatingSystemRequirements": "Windows 10 or Windows 11, 64-bit",
+        "publisher": {"@type":"Organization","name":"SRWare"},
+        "applicationSuite": "SRWare Iron for Windows",
+        "url": "https://srware-app.github.io/portable-windows.html"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"Is a portable build officially available?","acceptedAnswer":{"@type":"Answer","text":"Portable editions may be provided by the vendor, but availability can vary by version. If you cannot find one, the standard installer is recommended."}},
+          {"@type":"Question","name":"Will portable Iron auto-update?","acceptedAnswer":{"@type":"Answer","text":"Portable builds typically do not auto-update. Manually replace app files when a new version is released, keeping your profile folder."}},
+          {"@type":"Question","name":"Does portable keep my data separate?","acceptedAnswer":{"@type":"Answer","text":"Yes. The goal of portable use is to keep your profile self-contained within the portable folder you control."}}
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://srware-app.github.io/#website",
+        "url": "https://srware-app.github.io/",
+        "name": "SRWare Iron for Windows",
+        "inLanguage": "en",
+        "potentialAction": {"@type":"SearchAction","target":"https://srware-app.github.io/?q={search_term_string}","query-input":"required name=search_term_string"}
+      }
+    ]
+  }
+  </script>
+
+  <script>
+  // Last-modified meta + UI
+  (function(){
+    var lm = document.lastModified || '';
+    var meta = document.querySelector('meta[name="last-modified"]');
+    if(meta) meta.setAttribute('content', lm);
+    var el = document.getElementById('last-updated');
+    if(el){ el.textContent = 'Last updated: ' + lm; }
+  })();
+
+  // Cookie banner + GA4 lazy loader with consent mode
+  (function(){
+    var banner = document.getElementById('cookie-banner');
+    var acceptBtn = document.getElementById('btn-accept');
+    var declineBtn = document.getElementById('btn-decline');
+    var closeBtn = document.getElementById('btn-close');
+    var key = 'cookieConsent';
+    var sessionHide = 'cookieBannerHiddenOnce';
+
+    function showBanner(){ if(!banner) return; banner.hidden = false; }
+    function hideBanner(){ if(banner) banner.hidden = true; }
+
+    function loadGA(){
+      if(window.__gaLoaded) return;
+      window.__gaLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('consent', 'default', { ad_storage: 'denied', analytics_storage: 'denied' });
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QL8CGXD04H';
+      s.onload = function(){
+        gtag('js', new Date());
+        gtag('config', 'G-QL8CGXD04H');
+      };
+      document.head.appendChild(s);
+    }
+
+    function grantAnalytics(){
+      if(typeof gtag === 'function'){
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      } else {
+        loadGA();
+        var t = setInterval(function(){
+          if(typeof gtag === 'function'){ gtag('consent','update',{analytics_storage:'granted'}); clearInterval(t);} 
+        }, 200);
+      }
+    }
+
+    var saved = localStorage.getItem(key);
+    if(saved === 'accepted'){
+      loadGA();
+      grantAnalytics();
+    } else if(saved === 'declined'){
+      // do nothing
+    } else {
+      if(!sessionStorage.getItem(sessionHide)) showBanner();
+    }
+
+    acceptBtn && acceptBtn.addEventListener('click', function(){
+      localStorage.setItem(key,'accepted');
+      hideBanner();
+      loadGA();
+      grantAnalytics();
+    });
+    declineBtn && declineBtn.addEventListener('click', function(){
+      localStorage.setItem(key,'declined');
+      hideBanner();
+    });
+    closeBtn && closeBtn.addEventListener('click', function(){
+      sessionStorage.setItem(sessionHide,'1');
+      hideBanner();
+    });
+  })();
+
+  // File download tracking for direct links
+  (function(){
+    function trackDownload(fileName, url){
+      if(typeof gtag === 'function'){
+        gtag('event','file_download', {
+          event_category: 'downloads',
+          event_label: fileName || 'srware_iron64.exe',
+          file_url: url || 'https://www.srware.net/downloads/srware_iron64.exe'
+        });
+      }
+    }
+    document.addEventListener('click', function(e){
+      var a = e.target.closest('a[data-download]');
+      if(a){
+        var name = a.getAttribute('data-file') || 'srware_iron64.exe';
+        var href = a.getAttribute('href');
+        trackDownload(name, href);
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

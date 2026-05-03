@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Best Privacy Settings & Extensions for SRWare Iron (Windows)</title>
+  <meta name="description" content="Recommended privacy settings and extensions to harden SRWare Iron on Windows. Steps to reduce tracking, block ads, enforce HTTPS, and reduce fingerprinting." />
+  <meta name="robots" content="index,follow" />
+  <meta name="last-modified" content="" />
+  <link rel="canonical" href="https://srware-app.github.io/privacy-setup.html" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Privacy Setup for SRWare Iron – Best Settings & Extensions" />
+  <meta property="og:description" content="Harden SRWare Iron on Windows with practical privacy settings and extensions. Guides for blocking trackers, enforcing HTTPS, and minimizing fingerprinting." />
+  <meta property="og:url" content="https://srware-app.github.io/privacy-setup.html" />
+  <meta property="og:image" content="https://srware-app.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Privacy Setup for SRWare Iron – Best Settings & Extensions" />
+  <meta name="twitter:description" content="Harden SRWare Iron on Windows with practical privacy settings and extensions. Guides for blocking trackers, enforcing HTTPS, and minimizing fingerprinting." />
+  <meta name="twitter:image" content="https://srware-app.github.io/og-image.png" />
+
+  <style>
+    :root{ --bg:#ffffff; --bg-soft:#f4f7fb; --text:#0e1a2b; --muted:#44556e; --primary:#1f73b7; --border:#d8e2ee; --focus:#ffb703; --radius:12px; --shadow:0 10px 30px rgba(0,0,0,.08); }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+    .container{max-width:1100px;margin-inline:auto;padding:0 20px}
+    a{color:var(--primary)}
+    header{position:sticky;top:0;background:rgba(255,255,255,.96);border-bottom:1px solid var(--border);z-index:10}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:700}
+    nav ul{display:flex;gap:14px;list-style:none;padding:0;margin:0}
+    nav a{padding:8px;border-radius:8px}
+    .breadcrumbs{font-size:.95rem;color:var(--muted);padding:10px 0}
+
+    .hero{padding:36px 0}
+    .hero-card{background:var(--bg-soft);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:var(--radius);padding:24px}
+    h1{margin:0 0 8px;font-size:1.8rem}
+    .subtitle{color:var(--muted);margin:0 0 18px}
+
+    .section{padding:32px 0;border-top:1px solid var(--border)}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px}
+    .pill{display:inline-block;background:var(--bg-soft);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:.92rem}
+
+    .ext-list{display:flex;flex-direction:column;gap:10px}
+    .ext{display:flex;align-items:center;gap:12px}
+    .ext svg{width:40px;height:40px}
+
+    .tip{border-left:4px solid var(--primary);background:var(--bg-soft);padding:12px;border-radius:8px}
+
+    footer{margin-top:40px;padding:28px 0;border-top:1px solid var(--border);color:var(--muted)}
+
+    .banner{position:fixed;inset:auto 16px 16px 16px;max-width:760px;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow);border-radius:12px;padding:16px;z-index:99}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:2px solid transparent;cursor:pointer}
+    .btn-primary{background:var(--primary);color:#fff}
+
+    @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="ico-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm0 18.2c-3.1-1.1-5.5-4.6-5.5-8.2V6.4l5.5-2.1 5.5 2.1V12c0 3.6-2.4 7.1-5.5 8.2Z"/></symbol>
+  </svg>
+
+  <header>
+    <div class="container topbar" role="navigation">
+      <a class="brand" href="/"><svg aria-hidden="true"><use href="#ico-shield"/></svg><span>SRWare Iron for Windows</span></a>
+      <nav>
+        <ul>
+          <li><a href="/download-windows.html">Download</a></li>
+          <li><a href="/install-windows.html">Install Guide</a></li>
+          <li><a href="/portable-windows.html">Portable</a></li>
+          <li><a href="/privacy-setup.html" aria-current="page">Privacy Setup</a></li>
+          <li><a href="/iron-vs-chrome.html">VS Chrome</a></li>
+          <li><a href="/troubleshoot.html">Troubleshoot</a></li>
+          <li><a href="/updates.html">Updates</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span aria-current="page">Privacy Setup</span></nav>
+
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Best privacy settings & extensions for SRWare Iron (Windows)</h1>
+        <p class="subtitle">Practical steps to reduce tracking, block unwanted ads, enforce secure connections, and minimize browser fingerprinting while keeping compatibility.</p>
+        <p><a class="btn btn-primary" href="https://www.srware.net/downloads/srware_iron64.exe" data-download data-file="srware_iron64.exe" target="_blank" rel="noopener">Download SRWare Iron (64‑bit)</a></p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="quick">
+      <h2 id="quick">Quick privacy checklist</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Immediate actions (5 minutes)</h3>
+          <ul>
+            <li>Install SRWare Iron from the official link.</li>
+            <li>Open Settings → Privacy and disable any telemetry you don’t need.</li>
+            <li>Install an ad‑blocker (uBlock Origin) and HTTPS enforcement (HTTPS Everywhere or alternatives).</li>
+            <li>Disable third‑party cookies and site tracking in Privacy settings.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Recommended extensions</h3>
+          <div class="ext-list">
+            <div class="ext"><strong>uBlock Origin</strong> — Efficient content blocker and tracker filter.</div>
+            <div class="ext"><strong>Privacy Badger</strong> — Auto blocks invisible trackers.</div>
+            <div class="ext"><strong>HTTPS Everywhere</strong> — Force HTTPS where supported.</div>
+            <div class="ext"><strong>Decentraleyes</strong> — Locally serves common CDN resources to reduce requests.</div>
+            <div class="ext"><strong>LocalCDN</strong> — Similar to Decentraleyes for privacy and performance.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="settings">
+      <h2 id="settings">Settings to change (step‑by‑step)</h2>
+      <div class="card">
+        <h3>1. Basic privacy toggles</h3>
+        <ol>
+          <li>Open Settings → Privacy & security.</li>
+          <li>Turn off “Use a web service to help resolve navigation errors” and similar Google services if available.</li>
+          <li>Disable prediction services that send data to third parties.</li>
+        </ol>
+        <h3>2. Cookies and site data</h3>
+        <ol>
+          <li>Settings → Site settings → Cookies and site data → Block third‑party cookies.</li>
+          <li>Use site exceptions for sites you trust.</li>
+        </ol>
+        <h3>3. Clear data and manage cache</h3>
+        <ol>
+          <li>Settings → Privacy → Clear browsing data — clear cookies and cached images regularly or on exit.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="fingerprint">
+      <h2 id="fingerprint">Reducing fingerprinting</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Practical steps</h3>
+          <ul>
+            <li>Use a privacy extension that limits or randomizes fingerprint signals.</li>
+            <li>Disable or limit APIs you don’t use (WebGL, WebRTC) via extensions or flags.</li>
+            <li>Avoid too many unique extensions or custom themes — they can increase fingerprintability.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Extensions & tools</h3>
+          <ul>
+            <li>CanvasBlocker (if available) — blocks canvas fingerprinting.</li>
+            <li>uMatrix (advanced) — fine‑grained control over requests (advanced users).</li>
+            <li>Use a reputable VPN to mask IP‑based identification if needed.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="advanced">
+      <h2 id="advanced">Advanced privacy measures</h2>
+      <div class="card">
+        <h3>Chromium flags and advanced options</h3>
+        <p>Navigate to chrome://flags in Iron to adjust experimental flags. Be cautious — flags can break functionality. Consider the following with care:</p>
+        <ul>
+          <li>Disable client ID or RLZ related features if present.</li>
+          <li>Disable features that leak hardware or OS data in advanced contexts.</li>
+        </ul>
+        <p class="tip">Use flags only if you understand the risks. Backup your profile before changing experimental settings.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="maintain">
+      <h2 id="maintain">Maintenance & habits</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Regular habits</h3>
+          <ul>
+            <li>Keep the browser and extensions updated.</li>
+            <li>Review permissions for extensions regularly.</li>
+            <li>Clear cookies/data periodically or use site exceptions.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Backup & profiles</h3>
+          <p>Back up your profile folder regularly if you rely on bookmarks and local data. Portable profiles make backups easier.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq">
+      <h2 id="faq">Privacy FAQ</h2>
+      <div class="card">
+        <dl>
+          <dt>Will these settings make me anonymous?</dt>
+          <dd>No. These measures reduce tracking but do not provide full anonymity. For anonymity use Tor or privacy ecosystems and avoid login to major services.</dd>
+          <dt>Do extensions break websites?</dt>
+          <dd>Some aggressive blockers may break site functionality. Use per‑site rules or disable extensions on sites you trust.</dd>
+          <dt>Is it safe to disable all telemetry?</dt>
+          <dd>Disabling telemetry improves privacy. Ensure you still receive critical security updates and understand potential impacts on diagnostics.</dd>
+        </dl>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container" style="padding:28px 0;border-top:1px solid var(--border);color:var(--muted)">
+      <strong>SRWare Iron for Windows (Unofficial micro‑site)</strong>
+      <p>This site is not affiliated with SRWare GmbH. We provide guidance and link to the official installer.</p>
+      <p id="last-updated">Last updated: —</p>
+      <p>Canonical: <a href="https://srware-app.github.io/privacy-setup.html">https://srware-app.github.io/privacy-setup.html</a></p>
+    </div>
+  </footer>
+
+  <!-- Cookie banner -->
+  <div id="cookie-banner" class="banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title" aria-describedby="cookie-desc" hidden>
+    <p id="cookie-title" style="font-weight:700">Cookies & analytics</p>
+    <p id="cookie-desc">We use cookies to remember your choices and enable anonymous analytics (Google Analytics 4). You can accept or decline. You can also close this banner to decide later.</p>
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px;">
+      <button class="btn" id="btn-decline" type="button">Decline</button>
+      <button class="btn btn-primary" id="btn-accept" type="button">Accept</button>
+      <button class="btn" id="btn-close" type="button">Close</button>
+    </div>
+  </div>
+
+  <!-- Structured data: WebPage + SoftwareApplication + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"WebPage","@id":"https://srware-app.github.io/privacy-setup.html#webpage","url":"https://srware-app.github.io/privacy-setup.html","name":"Privacy Setup for SRWare Iron","description":"Recommended privacy settings and extensions for SRWare Iron on Windows.","isPartOf":{"@id":"https://srware-app.github.io/#website"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://srware-app.github.io/"},{"@type":"ListItem","position":2,"name":"Privacy Setup","item":"https://srware-app.github.io/privacy-setup.html"}]}}
+      ,{"@type":"SoftwareApplication","name":"SRWare Iron","applicationCategory":"BrowserApplication","operatingSystem":"Windows 11, Windows 10","softwareVersion":"Latest","downloadUrl":"https://www.srware.net/downloads/srware_iron64.exe","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"SRWare"},"url":"https://srware-app.github.io/privacy-setup.html"}
+      ,{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will these settings make me anonymous?","acceptedAnswer":{"@type":"Answer","text":"No. These measures reduce tracking but do not provide full anonymity."}},{"@type":"Question","name":"Do extensions break websites?","acceptedAnswer":{"@type":"Answer","text":"Some aggressive blockers may break site functionality; use per-site rules if needed."}},{"@type":"Question","name":"Is it safe to disable all telemetry?","acceptedAnswer":{"@type":"Answer","text":"Disabling telemetry improves privacy but ensure you still receive security updates."}}]}
+    ]
+  }
+  </script>
+
+  <script>
+  // last-modified
+  (function(){var lm=document.lastModified||'';document.querySelector('meta[name="last-modified"]').setAttribute('content',lm);var el=document.getElementById('last-updated');if(el)el.textContent='Last updated: '+lm;} )();
+
+  // cookie banner + GA lazy load
+  (function(){
+    var banner=document.getElementById('cookie-banner');
+    var accept=document.getElementById('btn-accept');
+    var decline=document.getElementById('btn-decline');
+    var closeBtn=document.getElementById('btn-close');
+    var key='cookieConsent';
+    function show(){ if(!banner) return; banner.hidden=false; }
+    function hide(){ if(!banner) return; banner.hidden=true; }
+    function loadGA(){ if(window.__gaLoaded) return; window.__gaLoaded=true; window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);} window.gtag=gtag; gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied'}); var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-QL8CGXD04H'; s.onload=function(){ gtag('js', new Date()); gtag('config','G-QL8CGXD04H'); }; document.head.appendChild(s);} 
+    function grant(){ if(typeof gtag==='function'){ gtag('consent','update',{analytics_storage:'granted'});} else { loadGA(); var t=setInterval(function(){ if(typeof gtag==='function'){ gtag('consent','update',{analytics_storage:'granted'}); clearInterval(t);} },200);} }
+    var saved=localStorage.getItem(key);
+    if(saved==='accepted'){ loadGA(); grant(); } else if(saved==='declined'){ } else { show(); }
+    accept && accept.addEventListener('click', function(){ localStorage.setItem(key,'accepted'); hide(); loadGA(); grant(); });
+    decline && decline.addEventListener('click', function(){ localStorage.setItem(key,'declined'); hide(); });
+    closeBtn && closeBtn.addEventListener('click', function(){ sessionStorage.setItem('cookieBannerHiddenOnce','1'); hide(); });
+  })();
+
+  // download tracking
+  (function(){ document.addEventListener('click', function(e){ var a=e.target.closest('a[data-download]'); if(a){ var name=a.getAttribute('data-file')||'srware_iron64.exe'; var href=a.getAttribute('href'); if(typeof gtag==='function'){ gtag('event','file_download',{event_category:'downloads',event_label:name,file_url:href}); } } }); })();
+  </script>
+</body>
+</html>

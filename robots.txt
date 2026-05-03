@@ -1,0 +1,10 @@
+# robots.txt for https://srware-app.github.io
+# Allow all crawlers and point to the sitemap
+
+User-agent: *
+Allow: /
+
+# Crawl-delay is not set to avoid throttling normal indexing
+
+Sitemap: https://srware-app.github.io/sitemap.xml
+Host: srware-app.github.io

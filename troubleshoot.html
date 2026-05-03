@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Troubleshooting SRWare Iron on Windows – Fix Common Issues</title>
+  <meta name="description" content="Fix SRWare Iron issues on Windows: won't start, crashes, install blocked, slow performance, video issues, and clean reinstall guide." />
+  <meta name="robots" content="index,follow" />
+  <meta name="last-modified" content="" />
+  <link rel="canonical" href="https://srware-app.github.io/troubleshoot.html" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Troubleshooting SRWare Iron on Windows – Fix Common Issues" />
+  <meta property="og:description" content="Solve startup, crashes, install blocks, and performance problems for SRWare Iron on Windows." />
+  <meta property="og:url" content="https://srware-app.github.io/troubleshoot.html" />
+  <meta property="og:image" content="https://srware-app.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Troubleshooting SRWare Iron on Windows – Fix Common Issues" />
+  <meta name="twitter:description" content="Solve startup, crashes, install blocks, and performance problems for SRWare Iron on Windows." />
+  <meta name="twitter:image" content="https://srware-app.github.io/og-image.png" />
+
+  <style>
+    :root{
+      --bg:#ffffff; --bg-soft:#f4f7fb; --text:#0e1a2b; --muted:#44556e;
+      --primary:#1f73b7; --primary-600:#1c66a4; --primary-700:#185988; --accent:#0aa2ff;
+      --border:#d8e2ee; --success:#1d9f52; --danger:#c23939; --focus:#ffb703;
+      --shadow:0 10px 30px rgba(0,0,0,.08); --radius:12px; --radius-sm:8px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+    a{color:var(--primary);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin-inline:auto;padding:0 20px}
+    header{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border);z-index:10}
+    .topbar{display:flex;gap:20px;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:1.05rem;color:var(--text)}
+    .brand svg{width:28px;height:28px}
+    nav ul{display:flex;flex-wrap:wrap;gap:14px;list-style:none;margin:0;padding:0}
+    nav a{padding:8px 10px;border-radius:8px}
+    nav a:focus,button:focus,[role="button"]:focus{outline:3px solid var(--focus);outline-offset:2px}
+    nav a:hover{background:var(--bg-soft)}
+
+    .breadcrumbs{font-size:.95rem;color:var(--muted);padding:10px 0}
+    .breadcrumbs a{color:var(--muted)}
+
+    .hero{padding:36px 0}
+    .hero-card{background:var(--bg-soft);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:var(--radius);padding:24px}
+    h1{margin:0 0 8px;font-size:1.8rem;line-height:1.2}
+    .subtitle{color:var(--muted);margin:0 0 18px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}
+
+    .btn{display:inline-flex;align-items:center;gap:10px;border-radius:10px;padding:12px 16px;font-weight:600;border:2px solid transparent;cursor:pointer}
+    .btn svg{width:18px;height:18px}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--primary-600)}
+    .btn-outline{background:#fff;border-color:var(--primary);color:var(--primary)}
+    .btn-outline:hover{background:var(--bg-soft)}
+
+    .section{padding:32px 0;border-top:1px solid var(--border)}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:18px}
+    .card h3{margin:6px 0 10px;font-size:1.1rem}
+    .meta{color:var(--muted);font-size:.92rem}
+
+    ol.steps{counter-reset: step; list-style:none; padding:0; margin:0}
+    ol.steps li{position:relative;background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 16px 16px 56px;margin:0 0 14px}
+    ol.steps li::before{counter-increment: step; content: counter(step); position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    .tip{border-left:4px solid var(--primary);background:var(--bg-soft);padding:12px;border-radius:8px}
+
+    footer{margin-top:40px;padding:28px 0;border-top:1px solid var(--border);color:var(--muted)}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+    .banner{position:fixed;inset:auto 16px 16px 16px;max-width:760px;margin-inline:auto;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow);border-radius:12px;padding:16px;z-index:99}
+    .banner p{margin:0 0 10px}
+    .banner .row{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .btn-accept{background:var(--success);color:#fff}
+    .btn-accept:hover{background:#178446}
+    .btn-decline{background:#fff;color:var(--danger);border-color:var(--danger)}
+    .btn-decline:hover{background:#fff0f0}
+    .btn-close{background:#fff;color:var(--muted);border-color:var(--border)}
+
+    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{position:static;width:auto;height:auto;padding:8px;background:var(--focus);color:#000;border-radius:8px}
+
+    @media (max-width: 900px){
+      .grid-2{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="ico-download" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20h14a1 1 0 0 0 0-2H5a1 1 0 1 0 0 2Zm7-3a1 1 0 0 0 1-1V6a1 1 0 1 0-2 0v10a1 1 0 0 0 1 1Zm-3.7-5.7 2.99 2.99a1 1 0 0 0 1.42 0l2.99-2.99a1 1 0 1 0-1.41-1.41L12 11.59 9.7 9.29a1 1 0 1 0-1.41 1.41Z"/></symbol>
+    <symbol id="ico-windows" viewBox="0 0 24 24"><path fill="currentColor" d="M3 4.5 11 3v8H3V4.5Zm0 9.5h8v8l-8-1.5V14Zm10-11L21 2v9h-8V3Zm0 10h8v9l-8-1.5V13Z"/></symbol>
+    <symbol id="ico-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm0 18.2c-3.1-1.1-5.5-4.6-5.5-8.2V6.4l5.5-2.1 5.5 2.1V12c0 3.6-2.4 7.1-5.5 8.2Z"/></symbol>
+    <symbol id="ico-gear" viewBox="0 0 24 24"><path fill="currentColor" d="M19.4 13.5a7.8 7.8 0 0 0 .1-1.5 7.8 7.8 0 0 0-.1-1.5l2.1-1.6a.5.5 0 0 0 .1-.6l-2-3.4a.5.5 0 0 0-.6-.2l-2.5 1a6.5 6.5 0 0 0-2.6-1.5l-.4-2.6A.5.5 0 0 0 12 0h-4a.5.5 0 0 0-.5.4l-.4 2.6A6.5 6.5 0 0 0 4.5 4.5l-2.5-1a.5.5 0 0 0-.6.2l-2 3.4a.5.5 0 0 0 .1.6L1.6 9a7.8 7.8 0 0 0-.1 1.5 7.8 7.8 0 0 0 .1 1.5L-.5 13.6a.5.5 0 0 0-.1.6l2 3.4a.5.5 0 0 0 .6.2l2.5-1a6.5 6.5 0 0 0 2.6 1.5l.4 2.6a.5.5 0 0 0 .5.4h4a.5.5 0 0 0 .5-.4l.4-2.6a6.5 6.5 0 0 0 2.6-1.5l2.5 1a.5.5 0 0 0 .6-.2l2-3.4a.5.5 0 0 0-.1-.6l-2.1-1.6ZM10 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0Z"/></symbol>
+    <symbol id="ico-help" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2Zm1 16h-2v-2h2v2Zm2-7.5c0 1.2-.7 1.9-1.7 2.5-.7.4-1.3.8-1.3 1.5V15h-2v-.6c0-1.5 1.1-2.2 1.9-2.7.7-.4 1.1-.7 1.1-1.2 0-.7-.6-1.2-1.5-1.2-.9 0-1.6.4-2.1 1.1L7 9.2C7.7 8 9.1 7 11 7c2.1 0 4 1.2 4 3.5Z"/></symbol>
+    <symbol id="ico-external" viewBox="0 0 24 24"><path fill="currentColor" d="M14 3v2h3.6l-7.8 7.8 1.4 1.4L19 6.4V10h2V3h-7Z"/><path fill="currentColor" d="M5 5h6V3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6h-2v6H5V5Z"/></symbol>
+  </svg>
+
+  <header>
+    <div class="container topbar" role="navigation" aria-label="Primary">
+      <a class="brand" href="/" aria-label="Home">
+        <svg aria-hidden="true"><use href="#ico-shield"/></svg>
+        <span>SRWare Iron for Windows</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="/download-windows.html">Download</a></li>
+          <li><a href="/install-windows.html">Install Guide</a></li>
+          <li><a href="/portable-windows.html">Portable</a></li>
+          <li><a href="/privacy-setup.html">Privacy Setup</a></li>
+          <li><a href="/iron-vs-chrome.html">VS Chrome</a></li>
+          <li><a href="/troubleshoot.html" aria-current="page">Troubleshoot</a></li>
+          <li><a href="/updates.html">Updates</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> › <span aria-current="page">Troubleshoot</span>
+    </nav>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-card">
+        <h1 id="hero-title">Troubleshooting SRWare Iron on Windows</h1>
+        <p class="subtitle">Fix common issues: won’t start, crashes or freezes, installation blocked, slow performance, and video problems.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://www.srware.net/downloads/srware_iron64.exe" data-download data-file="srware_iron64.exe" rel="noopener" target="_blank"><svg aria-hidden="true"><use href="#ico-download"/></svg><span>Download installer (64‑bit)</span></a>
+          <a class="btn btn-outline" href="/install-windows.html"><svg aria-hidden="true"><use href="#ico-windows"/></svg><span>Install Guide</span></a>
+          <a class="btn btn-outline" href="#clean-reinstall"><svg aria-hidden="true"><use href="#ico-gear"/></svg><span>Clean reinstall</span></a>
+        </div>
+        <p class="meta">Works on Windows 11/10 (64‑bit). For locked‑down PCs, consider the <a href="/portable-windows.html">portable version</a>.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="issues">
+      <h2 id="issues">Common issues & quick fixes</h2>
+      <div class="grid-3">
+        <article class="card" aria-labelledby="issue-start">
+          <h3 id="issue-start">Iron won’t start</h3>
+          <ul>
+            <li>End stuck processes (Task Manager → end “iron.exe”).</li>
+            <li>Check antivirus/quarantine and restore if needed.</li>
+            <li>Run as administrator once to rule out permission issues.</li>
+            <li>Create a fresh profile: rename the Iron user profile folder and relaunch.</li>
+          </ul>
+        </article>
+        <article class="card" aria-labelledby="issue-crash">
+          <h3 id="issue-crash">Crashes or freezes</h3>
+          <ul>
+            <li>Disable or remove recent extensions.</li>
+            <li>Toggle hardware acceleration (Settings → System).</li>
+            <li>Update GPU drivers and Windows updates.</li>
+            <li>Reset settings or try a clean profile.</li>
+          </ul>
+        </article>
+        <article class="card" aria-labelledby="issue-install">
+          <h3 id="issue-install">Can’t install</h3>
+          <ul>
+            <li>SmartScreen: click “More info” → “Run anyway” if you trust the source.</li>
+            <li>UAC blocked: use an admin account or portable build.</li>
+            <li>Offline? Re‑download with a stable connection.</li>
+            <li>Path issues: install to a user‑writable folder.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="perf">
+      <h2 id="perf">Slow performance or video issues</h2>
+      <div class="grid-3">
+        <div class="card"><h3>Speed up browsing</h3><ul><li>Clear cache and cookies.</li><li>Disable heavy extensions and background tasks.</li><li>Close tabs with live streams or auto‑refresh.</li></ul></div>
+        <div class="card"><h3>Hardware acceleration</h3><p>Toggle hardware acceleration: some GPUs benefit, others cause stutters.</p><p class="tip">Settings → System → “Use hardware acceleration when available”.</p></div>
+        <div class="card"><h3>Video codecs</h3><p>Ensure Windows media components are updated. Try another extension for playback or check site‑specific settings.</p></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="clean-reinstall">
+      <h2 id="clean-reinstall">Clean reinstall (step‑by‑step)</h2>
+      <ol class="steps">
+        <li>
+          <h3>Backup important data</h3>
+          <p>Export bookmarks and note passwords. If using a portable profile, copy the entire folder.</p>
+        </li>
+        <li>
+          <h3>Uninstall SRWare Iron</h3>
+          <p>Windows Settings → Apps → Installed apps → SRWare Iron → Uninstall.</p>
+        </li>
+        <li>
+          <h3>Remove leftover profile</h3>
+          <p>Delete or rename the Iron user profile folder to avoid conflicts when reinstalling.</p>
+        </li>
+        <li>
+          <h3>Reinstall from the official link</h3>
+          <p>Download again from the official server and run the installer.</p>
+          <p><a class="btn btn-primary" href="https://www.srware.net/downloads/srware_iron64.exe" data-download data-file="srware_iron64.exe" rel="noopener" target="_blank"><svg aria-hidden="true"><use href="#ico-download"/></svg><span>Download installer</span></a></p>
+        </li>
+        <li>
+          <h3>Start fresh and test</h3>
+          <p>Launch Iron and test basic sites before restoring extensions or imports.</p>
+        </li>
+      </ol>
+      <p class="tip">If issues persist after a clean reinstall, check <a href="/updates.html">Updates</a> and ensure your Windows drivers and system updates are current.</p>
+    </section>
+
+    <section class="section" aria-labelledby="faq">
+      <h2 id="faq">Troubleshooting FAQ</h2>
+      <div class="card">
+        <dl>
+          <dt>Where is the Iron profile folder?</dt>
+          <dd>Profile locations depend on the build and setup. If using a portable build, your profile is inside the portable folder. Otherwise search for “Iron” in your AppData or installation directory.</dd>
+          <dt>SmartScreen blocks the installer — is it safe?</dt>
+          <dd>Use the official link and verify the source (srware.net). Proceed only if you trust the origin. Keep antivirus enabled.</dd>
+          <dt>Extensions cause crashes — what now?</dt>
+          <dd>Disable extensions in Safe Mode‑like fashion (start with “--disable-extensions”) or remove recent ones, then re‑enable selectively.</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="next">
+      <h2 id="next">Next steps</h2>
+      <div class="grid-3">
+        <div class="card"><h3>Install Guide</h3><p>Set up Iron correctly on Windows 11/10.</p><p><a class="btn btn-outline" href="/install-windows.html"><svg aria-hidden="true"><use href="#ico-windows"/></svg><span>Open guide</span></a></p></div>
+        <div class="card"><h3>Privacy Setup</h3><p>Harden your browser after fixing issues.</p><p><a class="btn btn-outline" href="/privacy-setup.html"><svg aria-hidden="true"><use href="#ico-shield"/></svg><span>Harden privacy</span></a></p></div>
+        <div class="card"><h3>Updates</h3><p>Check for new releases and security fixes.</p><p><a class="btn btn-outline" href="/updates.html"><svg aria-hidden="true"><use href="#ico-gear"/></svg><span>See updates</span></a></p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>SRWare Iron for Windows (Unofficial micro‑site)</strong>
+        <p class="meta">This site is not affiliated with SRWare GmbH. All trademarks and product names are the property of their respective owners. Links point to official sources.</p>
+        <p class="meta" id="last-updated">Last updated: —</p>
+      </div>
+      <div>
+        <p><a href="/">Home</a> · <a href="/download-windows.html">Download</a> · <a href="/install-windows.html">Install Guide</a> · <a href="/portable-windows.html">Portable</a> · <a href="/iron-vs-chrome.html">VS Chrome</a> · <a href="/privacy-setup.html">Privacy Setup</a> · <a href="/troubleshoot.html">Troubleshoot</a> · <a href="/updates.html">Updates</a></p>
+        <p class="meta">Canonical URL: <a href="https://srware-app.github.io/troubleshoot.html">https://srware-app.github.io/troubleshoot.html</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie banner -->
+  <div id="cookie-banner" class="banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title" aria-describedby="cookie-desc" hidden>
+    <p id="cookie-title" style="font-weight:700">Cookies & analytics</p>
+    <p id="cookie-desc">We use cookies to remember your choices and enable anonymous analytics (Google Analytics 4). You can accept or decline. You can also close this banner to decide later.</p>
+    <div class="row">
+      <button class="btn btn-decline" id="btn-decline" type="button">Decline</button>
+      <button class="btn btn-accept" id="btn-accept" type="button">Accept</button>
+      <button class="btn btn-close" id="btn-close" type="button">Close</button>
+    </div>
+  </div>
+
+  <!-- Structured data: WebPage + SoftwareApplication + BreadcrumbList + FAQPage + HowTo (Clean reinstall) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://srware-app.github.io/troubleshoot.html#webpage",
+        "url": "https://srware-app.github.io/troubleshoot.html",
+        "name": "Troubleshooting SRWare Iron on Windows – Fix Common Issues",
+        "description": "Fix startup, crash, install, performance, and video issues for SRWare Iron on Windows.",
+        "isPartOf": {"@id":"https://srware-app.github.io/#website"},
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://srware-app.github.io/"},
+            {"@type":"ListItem","position":2,"name":"Troubleshoot","item":"https://srware-app.github.io/troubleshoot.html"}
+          ]
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "SRWare Iron",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Windows 11, Windows 10",
+        "softwareVersion": "Latest",
+        "offers": {"@type":"Offer","price":"0.00","priceCurrency":"USD","availability":"https://schema.org/InStock"},
+        "downloadUrl": "https://www.srware.net/downloads/srware_iron64.exe",
+        "installUrl": "https://www.srware.net/downloads/srware_iron64.exe",
+        "isAccessibleForFree": true,
+        "operatingSystemRequirements": "Windows 10 or Windows 11, 64-bit",
+        "publisher": {"@type":"Organization","name":"SRWare"},
+        "applicationSuite": "SRWare Iron for Windows",
+        "url": "https://srware-app.github.io/troubleshoot.html"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"Where is the Iron profile folder?","acceptedAnswer":{"@type":"Answer","text":"Portable builds store the profile in the portable folder; installed builds typically use AppData or the installation directory. Search for 'Iron' in your user directories."}},
+          {"@type":"Question","name":"SmartScreen blocks the installer — is it safe?","acceptedAnswer":{"@type":"Answer","text":"Use the official link and verify the origin (srware.net). Proceed only if you trust the source and keep antivirus enabled."}},
+          {"@type":"Question","name":"Extensions cause crashes — what now?","acceptedAnswer":{"@type":"Answer","text":"Disable extensions or remove recent ones, then re-enable selectively to find the culprit."}}
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "Clean reinstall SRWare Iron on Windows",
+        "totalTime": "PT7M",
+        "estimatedCost": {"@type":"MonetaryAmount","currency":"USD","value":"0"},
+        "supply": [
+          {"@type":"HowToSupply","name":"Windows 11/10 (64-bit) PC"}
+        ],
+        "tool": [
+          {"@type":"HowToTool","name":"Official installer (srware_iron64.exe)"}
+        ],
+        "step": [
+          {"@type":"HowToStep","name":"Backup important data","itemListElement":[{"@type":"HowToDirection","text":"Export bookmarks and note passwords or copy your portable profile folder."}]},
+          {"@type":"HowToStep","name":"Uninstall SRWare Iron","itemListElement":[{"@type":"HowToDirection","text":"Windows Settings → Apps → Installed apps → SRWare Iron → Uninstall."}]},
+          {"@type":"HowToStep","name":"Remove leftover profile","itemListElement":[{"@type":"HowToDirection","text":"Delete or rename the Iron user profile folder to avoid conflicts."}]},
+          {"@type":"HowToStep","name":"Reinstall from the official link","itemListElement":[{"@type":"HowToDirection","text":"Download from https://www.srware.net/downloads/srware_iron64.exe and run the installer."}]},
+          {"@type":"HowToStep","name":"Start fresh and test","itemListElement":[{"@type":"HowToDirection","text":"Launch Iron and test basic sites before restoring extensions."}]}
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://srware-app.github.io/#website",
+        "url": "https://srware-app.github.io/",
+        "name": "SRWare Iron for Windows",
+        "inLanguage": "en",
+        "potentialAction": {"@type":"SearchAction","target":"https://srware-app.github.io/?q={search_term_string}","query-input":"required name=search_term_string"}
+      }
+    ]
+  }
+  </script>
+
+  <script>
+  // Last-modified meta + UI
+  (function(){
+    var lm = document.lastModified || '';
+    var meta = document.querySelector('meta[name="last-modified"]');
+    if(meta) meta.setAttribute('content', lm);
+    var el = document.getElementById('last-updated');
+    if(el){ el.textContent = 'Last updated: ' + lm; }
+  })();
+
+  // Cookie banner + GA4 lazy loader with consent mode
+  (function(){
+    var banner = document.getElementById('cookie-banner');
+    var acceptBtn = document.getElementById('btn-accept');
+    var declineBtn = document.getElementById('btn-decline');
+    var closeBtn = document.getElementById('btn-close');
+    var key = 'cookieConsent';
+    var sessionHide = 'cookieBannerHiddenOnce';
+
+    function showBanner(){ if(!banner) return; banner.hidden = false; }
+    function hideBanner(){ if(banner) banner.hidden = true; }
+
+    function loadGA(){
+      if(window.__gaLoaded) return;
+      window.__gaLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('consent', 'default', { ad_storage: 'denied', analytics_storage: 'denied' });
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QL8CGXD04H';
+      s.onload = function(){
+        gtag('js', new Date());
+        gtag('config', 'G-QL8CGXD04H');
+      };
+      document.head.appendChild(s);
+    }
+
+    function grantAnalytics(){
+      if(typeof gtag === 'function'){
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      } else {
+        loadGA();
+        var t = setInterval(function(){
+          if(typeof gtag === 'function'){ gtag('consent','update',{analytics_storage:'granted'}); clearInterval(t);} 
+        }, 200);
+      }
+    }
+
+    var saved = localStorage.getItem(key);
+    if(saved === 'accepted'){
+      loadGA();
+      grantAnalytics();
+    } else if(saved === 'declined'){
+      // do nothing
+    } else {
+      if(!sessionStorage.getItem(sessionHide)) showBanner();
+    }
+
+    acceptBtn && acceptBtn.addEventListener('click', function(){
+      localStorage.setItem(key,'accepted');
+      hideBanner();
+      loadGA();
+      grantAnalytics();
+    });
+    declineBtn && declineBtn.addEventListener('click', function(){
+      localStorage.setItem(key,'declined');
+      hideBanner();
+    });
+    closeBtn && closeBtn.addEventListener('click', function(){
+      sessionStorage.setItem(sessionHide,'1');
+      hideBanner();
+    });
+  })();
+
+  // File download tracking for direct links
+  (function(){
+    function trackDownload(fileName, url){
+      if(typeof gtag === 'function'){
+        gtag('event','file_download', {
+          event_category: 'downloads',
+          event_label: fileName || 'srware_iron64.exe',
+          file_url: url || 'https://www.srware.net/downloads/srware_iron64.exe'
+        });
+      }
+    }
+    document.addEventListener('click', function(e){
+      var a = e.target.closest('a[data-download]');
+      if(a){
+        var name = a.getAttribute('data-file') || 'srware_iron64.exe';
+        var href = a.getAttribute('href');
+        trackDownload(name, href);
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

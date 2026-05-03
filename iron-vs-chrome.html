@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SRWare Iron vs Chrome – Privacy & Performance Comparison (Windows)</title>
+  <meta name="description" content="Compare SRWare Iron and Google Chrome on Windows. Privacy, telemetry, performance, extensions, updates, and security explained with actionable tips." />
+  <meta name="robots" content="index,follow" />
+  <meta name="last-modified" content="" />
+  <link rel="canonical" href="https://srware-app.github.io/iron-vs-chrome.html" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SRWare Iron vs Chrome – Privacy & Performance (Windows)" />
+  <meta property="og:description" content="Privacy-first SRWare Iron vs feature-rich Google Chrome. See how they differ on Windows and decide what fits your needs." />
+  <meta property="og:url" content="https://srware-app.github.io/iron-vs-chrome.html" />
+  <meta property="og:image" content="https://srware-app.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SRWare Iron vs Chrome – Privacy & Performance (Windows)" />
+  <meta name="twitter:description" content="Privacy-first SRWare Iron vs feature-rich Google Chrome. See how they differ on Windows and decide what fits your needs." />
+  <meta name="twitter:image" content="https://srware-app.github.io/og-image.png" />
+
+  <style>
+    :root{
+      --bg:#ffffff; --bg-soft:#f4f7fb; --text:#0e1a2b; --muted:#44556e;
+      --primary:#1f73b7; --primary-600:#1c66a4; --primary-700:#185988; --accent:#0aa2ff;
+      --border:#d8e2ee; --success:#1d9f52; --danger:#c23939; --focus:#ffb703;
+      --shadow:0 10px 30px rgba(0,0,0,.08); --radius:12px; --radius-sm:8px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+    a{color:var(--primary);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin-inline:auto;padding:0 20px}
+    header{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border);z-index:10}
+    .topbar{display:flex;gap:20px;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:1.05rem;color:var(--text)}
+    .brand svg{width:28px;height:28px}
+    nav ul{display:flex;flex-wrap:wrap;gap:14px;list-style:none;margin:0;padding:0}
+    nav a{padding:8px 10px;border-radius:8px}
+    nav a:focus,button:focus,[role="button"]:focus{outline:3px solid var(--focus);outline-offset:2px}
+    nav a:hover{background:var(--bg-soft)}
+
+    .breadcrumbs{font-size:.95rem;color:var(--muted);padding:10px 0}
+    .breadcrumbs a{color:var(--muted)}
+
+    .hero{padding:36px 0}
+    .hero-card{background:var(--bg-soft);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:var(--radius);padding:24px}
+    h1{margin:0 0 8px;font-size:1.8rem;line-height:1.2}
+    .subtitle{color:var(--muted);margin:0 0 18px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}
+
+    .btn{display:inline-flex;align-items:center;gap:10px;border-radius:10px;padding:12px 16px;font-weight:600;border:2px solid transparent;cursor:pointer}
+    .btn svg{width:18px;height:18px}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--primary-600)}
+    .btn-outline{background:#fff;border-color:var(--primary);color:var(--primary)}
+    .btn-outline:hover{background:var(--bg-soft)}
+
+    .section{padding:32px 0;border-top:1px solid var(--border)}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:18px}
+    .card h3{margin:6px 0 10px;font-size:1.1rem}
+    .meta{color:var(--muted);font-size:.92rem}
+    .pro{color:var(--success);font-weight:600}
+    .con{color:var(--danger);font-weight:600}
+    ul.comp{padding-left:18px;margin:8px 0}
+    ul.comp li{margin:6px 0}
+
+    footer{margin-top:40px;padding:28px 0;border-top:1px solid var(--border);color:var(--muted)}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+    .banner{position:fixed;inset:auto 16px 16px 16px;max-width:760px;margin-inline:auto;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow);border-radius:12px;padding:16px;z-index:99}
+    .banner p{margin:0 0 10px}
+    .banner .row{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .btn-accept{background:var(--success);color:#fff}
+    .btn-accept:hover{background:#178446}
+    .btn-decline{background:#fff;color:var(--danger);border-color:var(--danger)}
+    .btn-decline:hover{background:#fff0f0}
+    .btn-close{background:#fff;color:var(--muted);border-color:var(--border)}
+
+    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{position:static;width:auto;height:auto;padding:8px;background:var(--focus);color:#000;border-radius:8px}
+
+    @media (max-width: 900px){
+      .grid-2{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="ico-download" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20h14a1 1 0 0 0 0-2H5a1 1 0 1 0 0 2Zm7-3a1 1 0 0 0 1-1V6a1 1 0 1 0-2 0v10a1 1 0 0 0 1 1Zm-3.7-5.7 2.99 2.99a1 1 0 0 0 1.42 0l2.99-2.99a1 1 0 1 0-1.41-1.41L12 11.59 9.7 9.29a1 1 0 1 0-1.41 1.41Z"/></symbol>
+    <symbol id="ico-windows" viewBox="0 0 24 24"><path fill="currentColor" d="M3 4.5 11 3v8H3V4.5Zm0 9.5h8v8l-8-1.5V14Zm10-11L21 2v9h-8V3Zm0 10h8v9l-8-1.5V13Z"/></symbol>
+    <symbol id="ico-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm0 18.2c-3.1-1.1-5.5-4.6-5.5-8.2V6.4l5.5-2.1 5.5 2.1V12c0 3.6-2.4 7.1-5.5 8.2Z"/></symbol>
+    <symbol id="ico-gear" viewBox="0 0 24 24"><path fill="currentColor" d="M19.4 13.5a7.8 7.8 0 0 0 .1-1.5 7.8 7.8 0 0 0-.1-1.5l2.1-1.6a.5.5 0 0 0 .1-.6l-2-3.4a.5.5 0 0 0-.6-.2l-2.5 1a6.5 6.5 0 0 0-2.6-1.5l-.4-2.6A.5.5 0 0 0 12 0h-4a.5.5 0 0 0-.5.4l-.4 2.6A6.5 6.5 0 0 0 4.5 4.5l-2.5-1a.5.5 0 0 0-.6.2l-2 3.4a.5.5 0 0 0 .1.6L1.6 9a7.8 7.8 0 0 0-.1 1.5 7.8 7.8 0 0 0 .1 1.5L-.5 13.6a.5.5 0 0 0-.1.6l2 3.4a.5.5 0 0 0 .6.2l2.5-1a6.5 6.5 0 0 0 2.6 1.5l.4 2.6a.5.5 0 0 0 .5.4h4a.5.5 0 0 0 .5-.4l.4-2.6a6.5 6.5 0 0 0 2.6-1.5l2.5 1a.5.5 0 0 0 .6-.2l2-3.4a.5.5 0 0 0-.1-.6l-2.1-1.6ZM10 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0Z"/></symbol>
+    <symbol id="ico-compare" viewBox="0 0 24 24"><path fill="currentColor" d="M10 3H5a2 2 0 0 0-2 2v5h7V3Zm11 7V5a2 2 0 0 0-2-2h-5v7h7Zm0 2h-7v7h5a2 2 0 0 0 2-2v-5ZM10 12H3v5a2 2 0 0 0 2 2h5v-7Z"/></symbol>
+    <symbol id="ico-external" viewBox="0 0 24 24"><path fill="currentColor" d="M14 3v2h3.6l-7.8 7.8 1.4 1.4L19 6.4V10h2V3h-7Z"/><path fill="currentColor" d="M5 5h6V3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6h-2v6H5V5Z"/></symbol>
+    <symbol id="ico-help" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2Zm1 16h-2v-2h2v2Zm2-7.5c0 1.2-.7 1.9-1.7 2.5-.7.4-1.3.8-1.3 1.5V15h-2v-.6c0-1.5 1.1-2.2 1.9-2.7.7-.4 1.1-.7 1.1-1.2 0-.7-.6-1.2-1.5-1.2-.9 0-1.6.4-2.1 1.1L7 9.2C7.7 8 9.1 7 11 7c2.1 0 4 1.2 4 3.5Z"/></symbol>
+  </svg>
+
+  <header>
+    <div class="container topbar" role="navigation" aria-label="Primary">
+      <a class="brand" href="/" aria-label="Home">
+        <svg aria-hidden="true"><use href="#ico-shield"/></svg>
+        <span>SRWare Iron for Windows</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="/download-windows.html">Download</a></li>
+          <li><a href="/install-windows.html">Install Guide</a></li>
+          <li><a href="/portable-windows.html">Portable</a></li>
+          <li><a href="/privacy-setup.html">Privacy Setup</a></li>
+          <li><a href="/iron-vs-chrome.html" aria-current="page">VS Chrome</a></li>
+          <li><a href="/troubleshoot.html">Troubleshoot</a></li>
+          <li><a href="/updates.html">Updates</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> › <span aria-current="page">VS Chrome</span>
+    </nav>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-card">
+        <h1 id="hero-title">SRWare Iron vs Google Chrome (Windows)</h1>
+        <p class="subtitle">Both use the Chromium engine. Iron reduces certain telemetry by default; Chrome integrates Google services deeply. Here’s what differs and what stays the same.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://www.srware.net/downloads/srware_iron64.exe" data-download data-file="srware_iron64.exe" rel="noopener" target="_blank"><svg aria-hidden="true"><use href="#ico-download"/></svg><span>Download SRWare Iron (64‑bit)</span></a>
+          <a class="btn btn-outline" href="/privacy-setup.html"><svg aria-hidden="true"><use href="#ico-shield"/></svg><span>Harden privacy</span></a>
+          <a class="btn btn-outline" href="/download-windows.html"><svg aria-hidden="true"><use href="#ico-external"/></svg><span>All download options</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="glance">
+      <h2 id="glance">Comparison at a glance</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>SRWare Iron</h3>
+          <ul class="comp">
+            <li><span class="pro">Pro:</span> Privacy‑tuned defaults (reduced identifiers and tracking parameters).</li>
+            <li><span class="pro">Pro:</span> Chromium engine with Chrome extension support.</li>
+            <li><span class="pro">Pro:</span> Direct download; optional portable builds exist.</li>
+            <li><span class="con">Con:</span> No native Google Sync; updates rely on vendor’s release cadence.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Google Chrome</h3>
+          <ul class="comp">
+            <li><span class="pro">Pro:</span> Seamless Google account sync (bookmarks, history, passwords).</li>
+            <li><span class="pro">Pro:</span> Fast updates and widespread enterprise support.</li>
+            <li><span class="pro">Pro:</span> Vast ecosystem and tight service integration.</li>
+            <li><span class="con">Con:</span> Telemetry and service connections enabled by default.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="privacy">
+      <h2 id="privacy">Privacy and telemetry</h2>
+      <div class="grid-3">
+        <article class="card"><h3>Identifiers</h3><p>Iron aims to remove certain identifiers (e.g., client IDs, RLZ) present in stock Chromium builds. Chrome uses identifiers to improve services and metrics.</p></article>
+        <article class="card"><h3>Default connections</h3><p>Chrome connects to various Google endpoints for services like Safe Browsing, sync, and suggestions. Iron reduces some default pings while keeping core functionality.</p></article>
+        <article class="card"><h3>Anonymity?</h3><p>Neither provides full anonymity. For strong anonymity, use dedicated tools like Tor alongside good browsing hygiene.</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="performance">
+      <h2 id="performance">Performance and compatibility</h2>
+      <div class="grid-3">
+        <div class="card"><h3>Speed</h3><p>Both use Chromium, so day‑to‑day performance is comparable on Windows 11/10.</p></div>
+        <div class="card"><h3>Extensions</h3><p>Iron supports Chrome Web Store extensions. Most add‑ons that work in Chrome also work in Iron.</p></div>
+        <div class="card"><h3>Web standards</h3><p>Rendering and standards support are aligned with Chromium releases. Some features may differ depending on vendor build choices.</p></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="updates">
+      <h2 id="updates">Updates, security, and services</h2>
+      <div class="grid-3">
+        <div class="card"><h3>Updates & cadence</h3><p>Chrome updates rapidly via Google’s channels. Iron updates track upstream Chromium; check <a href="/updates.html">Updates</a> regularly.</p></div>
+        <div class="card"><h3>Safe Browsing</h3><p>Chrome integrates Google Safe Browsing by default. Iron retains core security features but may adjust defaults to reduce telemetry.</p></div>
+        <div class="card"><h3>Sync & ecosystem</h3><p>Chrome offers native Google account sync. Iron focuses on local privacy; syncing typically relies on extensions or third‑party solutions.</p></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cta">
+      <div class="card">
+        <h2 id="cta">Choose what fits your needs</h2>
+        <p>If you prefer reduced telemetry with Chromium compatibility, try SRWare Iron. If you need deep Google integration and fastest updates, Chrome may fit better.</p>
+        <p>
+          <a class="btn btn-primary" href="https://www.srware.net/downloads/srware_iron64.exe" data-download data-file="srware_iron64.exe" rel="noopener" target="_blank"><svg aria-hidden="true"><use href="#ico-download"/></svg><span>Download SRWare Iron</span></a>
+          <a class="btn btn-outline" href="https://www.google.com/chrome/" rel="noopener" target="_blank"><svg aria-hidden="true"><use href="#ico-external"/></svg><span>Visit Google Chrome</span></a>
+        </p>
+        <p class="meta">Note: This site is not affiliated with SRWare GmbH or Google LLC. Links lead to official sources.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq">
+      <h2 id="faq">FAQ</h2>
+      <div class="card">
+        <dl>
+          <dt>Which is more private by default?</dt>
+          <dd>Iron aims to reduce certain telemetry and identifiers compared to stock Chromium builds. Chrome enables service integrations by default. Your final privacy level depends on settings and extensions.</dd>
+          <dt>Which is faster on Windows?</dt>
+          <dd>Both use the Chromium engine; performance is generally similar. Differences mostly come from enabled features, extensions, and hardware.</dd>
+          <dt>Are Chrome extensions compatible with Iron?</dt>
+          <dd>Yes. Iron supports the Chrome Web Store, so most Chrome extensions work in Iron.</dd>
+          <dt>Does Iron auto‑update like Chrome?</dt>
+          <dd>Iron follows the vendor’s update cadence rather than Google’s. Check <a href="/updates.html">Updates</a> for tips and version info.</dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>SRWare Iron for Windows (Unofficial micro‑site)</strong>
+        <p class="meta">This site is not affiliated with SRWare GmbH or Google LLC. All trademarks and product names are the property of their respective owners.</p>
+        <p class="meta" id="last-updated">Last updated: —</p>
+      </div>
+      <div>
+        <p><a href="/">Home</a> · <a href="/download-windows.html">Download</a> · <a href="/install-windows.html">Install Guide</a> · <a href="/portable-windows.html">Portable</a> · <a href="/iron-vs-chrome.html">VS Chrome</a> · <a href="/privacy-setup.html">Privacy Setup</a> · <a href="/troubleshoot.html">Troubleshoot</a> · <a href="/updates.html">Updates</a></p>
+        <p class="meta">Canonical URL: <a href="https://srware-app.github.io/iron-vs-chrome.html">https://srware-app.github.io/iron-vs-chrome.html</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie banner -->
+  <div id="cookie-banner" class="banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title" aria-describedby="cookie-desc" hidden>
+    <p id="cookie-title" style="font-weight:700">Cookies & analytics</p>
+    <p id="cookie-desc">We use cookies to remember your choices and enable anonymous analytics (Google Analytics 4). You can accept or decline. You can also close this banner to decide later.</p>
+    <div class="row">
+      <button class="btn btn-decline" id="btn-decline" type="button">Decline</button>
+      <button class="btn btn-accept" id="btn-accept" type="button">Accept</button>
+      <button class="btn btn-close" id="btn-close" type="button">Close</button>
+    </div>
+  </div>
+
+  <!-- Structured data: WebPage + SoftwareApplication (Iron & Chrome) + FAQPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://srware-app.github.io/iron-vs-chrome.html#webpage",
+        "url": "https://srware-app.github.io/iron-vs-chrome.html",
+        "name": "SRWare Iron vs Google Chrome – Privacy & Performance (Windows)",
+        "description": "Neutral comparison of SRWare Iron and Google Chrome on Windows: privacy, telemetry, performance, extensions, and updates.",
+        "isPartOf": {"@id":"https://srware-app.github.io/#website"},
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://srware-app.github.io/"},
+            {"@type":"ListItem","position":2,"name":"VS Chrome","item":"https://srware-app.github.io/iron-vs-chrome.html"}
+          ]
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "SRWare Iron",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Windows 11, Windows 10",
+        "softwareVersion": "Latest",
+        "offers": {"@type":"Offer","price":"0.00","priceCurrency":"USD","availability":"https://schema.org/InStock"},
+        "downloadUrl": "https://www.srware.net/downloads/srware_iron64.exe",
+        "installUrl": "https://www.srware.net/downloads/srware_iron64.exe",
+        "isAccessibleForFree": true,
+        "publisher": {"@type":"Organization","name":"SRWare"},
+        "url": "https://srware-app.github.io/iron-vs-chrome.html"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Google Chrome",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Windows 11, Windows 10",
+        "offers": {"@type":"Offer","price":"0.00","priceCurrency":"USD","availability":"https://schema.org/InStock"},
+        "downloadUrl": "https://www.google.com/chrome/",
+        "installUrl": "https://www.google.com/chrome/",
+        "isAccessibleForFree": true,
+        "publisher": {"@type":"Organization","name":"Google LLC"},
+        "url": "https://www.google.com/chrome/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"Which is more private by default?","acceptedAnswer":{"@type":"Answer","text":"SRWare Iron aims to reduce certain telemetry and identifiers compared to stock Chromium builds, while Chrome enables service integrations by default. Final privacy depends on your settings and extensions."}},
+          {"@type":"Question","name":"Which is faster on Windows?","acceptedAnswer":{"@type":"Answer","text":"Both use the Chromium engine; performance is generally similar. Differences usually stem from enabled features, extensions, and hardware."}},
+          {"@type":"Question","name":"Are Chrome extensions compatible with Iron?","acceptedAnswer":{"@type":"Answer","text":"Yes. Iron supports the Chrome Web Store, so most Chrome extensions work in Iron."}},
+          {"@type":"Question","name":"Does Iron auto-update like Chrome?","acceptedAnswer":{"@type":"Answer","text":"Iron follows the vendor’s update cadence rather than Google’s. Check for updates regularly."}}
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://srware-app.github.io/#website",
+        "url": "https://srware-app.github.io/",
+        "name": "SRWare Iron for Windows",
+        "inLanguage": "en",
+        "potentialAction": {"@type":"SearchAction","target":"https://srware-app.github.io/?q={search_term_string}","query-input":"required name=search_term_string"}
+      }
+    ]
+  }
+  </script>
+
+  <script>
+  // Last-modified meta + UI
+  (function(){
+    var lm = document.lastModified || '';
+    var meta = document.querySelector('meta[name="last-modified"]');
+    if(meta) meta.setAttribute('content', lm);
+    var el = document.getElementById('last-updated');
+    if(el){ el.textContent = 'Last updated: ' + lm; }
+  })();
+
+  // Cookie banner + GA4 lazy loader with consent mode
+  (function(){
+    var banner = document.getElementById('cookie-banner');
+    var acceptBtn = document.getElementById('btn-accept');
+    var declineBtn = document.getElementById('btn-decline');
+    var closeBtn = document.getElementById('btn-close');
+    var key = 'cookieConsent';
+    var sessionHide = 'cookieBannerHiddenOnce';
+
+    function showBanner(){ if(!banner) return; banner.hidden = false; }
+    function hideBanner(){ if(banner) banner.hidden = true; }
+
+    function loadGA(){
+      if(window.__gaLoaded) return;
+      window.__gaLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('consent', 'default', { ad_storage: 'denied', analytics_storage: 'denied' });
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QL8CGXD04H';
+      s.onload = function(){
+        gtag('js', new Date());
+        gtag('config', 'G-QL8CGXD04H');
+      };
+      document.head.appendChild(s);
+    }
+
+    function grantAnalytics(){
+      if(typeof gtag === 'function'){
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      } else {
+        loadGA();
+        var t = setInterval(function(){
+          if(typeof gtag === 'function'){ gtag('consent','update',{analytics_storage:'granted'}); clearInterval(t);} 
+        }, 200);
+      }
+    }
+
+    var saved = localStorage.getItem(key);
+    if(saved === 'accepted'){
+      loadGA();
+      grantAnalytics();
+    } else if(saved === 'declined'){
+      // do nothing
+    } else {
+      if(!sessionStorage.getItem(sessionHide)) showBanner();
+    }
+
+    acceptBtn && acceptBtn.addEventListener('click', function(){
+      localStorage.setItem(key,'accepted');
+      hideBanner();
+      loadGA();
+      grantAnalytics();
+    });
+    declineBtn && declineBtn.addEventListener('click', function(){
+      localStorage.setItem(key,'declined');
+      hideBanner();
+    });
+    closeBtn && closeBtn.addEventListener('click', function(){
+      sessionStorage.setItem(sessionHide,'1');
+      hideBanner();
+    });
+  })();
+
+  // File download tracking for direct links
+  (function(){
+    function trackDownload(fileName, url){
+      if(typeof gtag === 'function'){
+        gtag('event','file_download', {
+          event_category: 'downloads',
+          event_label: fileName || 'srware_iron64.exe',
+          file_url: url || 'https://www.srware.net/downloads/srware_iron64.exe'
+        });
+      }
+    }
+    document.addEventListener('click', function(e){
+      var a = e.target.closest('a[data-download]');
+      if(a){
+        var name = a.getAttribute('data-file') || 'srware_iron64.exe';
+        var href = a.getAttribute('href');
+        trackDownload(name, href);
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
